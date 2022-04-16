@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      section {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        background-color: #80d0c7;
+      }
+      .centerdiv {
+        width: 800px;
+        height: 400px;
+        background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+      }
+      .insertBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+      }
+      #v1,
+      #v2 {
+        text-align: center;
+        padding: 20px 30px;
+        width: 35px;
+        font-size: 30px;
+      }
+      .box1 p {
+        font-size: 60px;
+        margin: 0 8px 0 13px;
+      }
+      .middleBox #answ {
+        text-align: center;
+        padding: 20px 30px;
+        width: 35px;
+        font-size: 30px;
+        font-size: 30px;
+        text-align: center;
+      }
+      .sentBox button {
+        margin-top: 50px;
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+        color: white;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="centerdiv">
+        <div class="insertBox">
+          <div class="box1">
+            <input type="text" id="v1" />
+          </div>
+          <div class="box1">
+            <p>+</p>
+          </div>
+          <div class="box1">
+            <input type="text" id="v2" />
+          </div>
+          <div class="box1">
+            <p>=</p>
+          </div>
+        </div>
+        <div>
+          <div class="middleBox">
+            <input type="text" id="answ" />
+          </div>
+        </div>
+      </div>
+      <div class="sentBox">
+        <button onclick="jsGames()">Check Answer</button>
+      </div>
+    </section>
+  </body>
+  <script>
+    let n1 = Math.floor(Math.random() * 10 + 1);
+    let n2 = Math.floor(Math.random() * 10 + 1);
+    document.getElementById("v1").value = n1;
+    document.getElementById("v2").value = n2;
+    let ans = n1 + n2;
+    const jsGames = () => {
+      var usera = document.getElementById("answ").value;
+      if (usera == ans) {
+        alert("Your answer is correct:" + ans);
+      } else {
+        alert("correct answer is " + ans + ". Try Again.");
+      }
+      document.getElementById("answ").value = "";
+      n1 = Math.floor(Math.random() * 10 + 1);
+      n2 = Math.floor(Math.random() * 10 + 1);
+      document.getElementById("v1").value = n1;
+      document.getElementById("v2").value = n2;
+      ans = n1 + n2;
+    };
+  </script>
+</html>
